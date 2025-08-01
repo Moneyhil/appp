@@ -28,7 +28,7 @@ export default function BloodDonationApp() {
 
 const styles = StyleSheet.create({
   qoutecard:{
-    backgroundColor: '#fd9d9dff',
+    backgroundColor: '#f7d0d0ff',
     padding: 20,
     borderRadius: 18,
     borderWidth: 1,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   card:{
-    backgroundColor: '#fd9d9dff',
+    backgroundColor: '#f7d0d0ff',
     padding: 20,
     borderRadius: 18,
     borderWidth: 1,
@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button:{
-    backgroundColor: '#588af5ff',  
+    backgroundColor: '#64cbfaff',  
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
-    shadowColor: '#283166ff',
+    shadowColor: '#4a58a5ff',
     shadowOpacity: 5,
     shadowRadius: 6,
   },
