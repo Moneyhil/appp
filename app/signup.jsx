@@ -76,14 +76,14 @@ export default function SignUpScreen() {
           secureTextEntry
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('profile')}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 
-        <Text style={styles.footerText}>
+        <Text style={styles.text}>
           Already have an account?{' '}
           <Text
-            style={styles.loginLink}
+            style={styles.Link}
             onPress={() => router.push('signin')}>
             Log In
           </Text>
@@ -138,13 +138,13 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-  footerText: {
+  text: {
     textAlign: 'center',
     color: '#444',
     marginTop: 10,
   },
-  loginLink: {
+  Link: {
     color: '#0000ff',
-    textDecorationL
+    textDecorationLine: 'underline'
   },
 })

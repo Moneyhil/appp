@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, Text, form, TextInput, TouchableOpacity, StyleSheet, Linking, SafeAreaView } from 'react-native';
+import { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet,} from 'react-native';
 import { router } from 'expo-router';
 
 
 export default function LoginScreen() {
-    const navigation = useNavigation();
-    const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
+    const [form, setForm] = useState({ email: '', password: '' });
+     const handleChange = (name, value) => {
+    setForm(prevForm => ({ ...prevForm, [name]: value }));
+  };
+const handleLogin = () => {
+    // ✅ Here you can add authentication logic.
+    // If successful, navigate to home or dashboard screen (e.g., 'home')
+    router.push('/home'); // Make sure /app/home.jsx exists
+  };
 
   return (
  
@@ -34,18 +37,18 @@ export default function LoginScreen() {
         />
 
 
-        <View style={styles.forgotContainer}>
-         <Text style={styles.footerText}>
+        <View style={styles.forgot}>
+         <Text style={styles.text}>
           Forget your password?{' '}
           <Text
-            style={styles.loginLink}
-            onPress={() => router.push('signin')}>
+            style={styles.Link}
+            onPress={() => router.push('forgetpassword')}>
             Forget password
           </Text>
         </Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
       </View>
@@ -57,17 +60,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: 25,
   },
   heading: {
     fontSize: 28,
     fontWeight: 'bold',
     color: '#cc0000',
     marginBottom: 20,
+    textAlign: 'center',
   },
   label: {
     fontWeight: 'bold',
-    alignSelf: 'flex-start',
     marginTop: 10,
     marginBottom: 5,
     color: '#333',
@@ -81,21 +84,27 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     backgroundColor: '#f2f2f2',
   },
-  forgotContainer: {
+  forgot: {
     flexDirection: 'row',
     alignSelf: 'flex-start',
     marginTop: 5,
     marginBottom: 20,
   },
-  forgotLink: {
+  Link: {
     color: 'blue',
     textDecorationLine: 'underline',
   },
   button: {
-    backgroundColor: '#cc0000',
+    backgroundColor: '#d40000',
     paddingVertical: 12,
-    paddingHorizontal: 40,
     borderRadius: 25,
+    marginTop: 20,
+    marginBottom: 10,
+    alignItems: 'center',
+    shadowColor: '#d40000',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
   },
   buttonText: {
     color: '#fff',
